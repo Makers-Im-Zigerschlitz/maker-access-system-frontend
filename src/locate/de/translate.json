@@ -1,0 +1,31 @@
+{
+    "translations": {
+        "menu": {
+            "home": "Start",
+            "members": "Mitglieder",
+            "documents": "Dokumente",
+            "inventory": "Inventar",
+            "bookings": "Reservationen",
+            "accounting": "Buchhaltung",
+            "administration": "Administration",
+            "login": "Login",
+            "signup": "Konto anlegen"
+        },
+        "login": {
+          "email": "Email",
+          "password": "Passwort",
+          "btn-login": "Einloggen",
+          "no-account": "Noch kein Konto?",
+          "incorrect-cred": "Der Benutzername oder das Passwort sind falsch!"
+        },
+        "signup": {
+          "email": "Email",
+          "password": "Passwort",
+          "retype-password": "Passwort wiederholen",
+          "btn-signup": "Konto anlegen",
+          "has-account": "Haben Sie bereits ein Konto?",
+          "password-not-same": "Die eingegebenen Passwörter stimmen nicht überein",
+          "user-exists": "Der Benutzername existiert bereits"
+        }
+    }
+}
