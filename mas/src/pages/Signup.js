@@ -1,21 +1,24 @@
 import React from "react";
+import { withTranslation, Trans } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import {Button,Card,Input,FormGroup} from "@blueprintjs/core"
+import {Button,Card,InputGroup,FormGroup} from "@blueprintjs/core"
 
-function Signup() {
+function Signup(props) {
+  const {t} = props
   return (
     <div>
+    <h1>{t('menu.signup')}</h1>
     <Card>
       <FormGroup>
-        <Input type="email" placeholder="email" />
-        <Input type="password" placeholder="password" />
-        <Input type="password" placeholder="password again" />
-        <Button>Sign Up</Button>
+        <InputGroup type="email" placeholder={t('signup.email')} />
+        <InputGroup type="password" placeholder={t('signup.password')} />
+        <InputGroup type="password" placeholder={t('signup.retype-password')} />
+        <Button>{t('signup.btn-signup')}</Button>
       </FormGroup>
-      <Link to="/login">Already have an account?</Link>
+      <Link to="/login">{t('signup.has-account')}</Link>
     </Card>
     </div>
   );
 }
 
-export default Signup;
+export default withTranslation()(Signup);

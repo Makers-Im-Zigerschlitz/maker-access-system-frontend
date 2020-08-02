@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { withTranslation, Trans } from 'react-i18next';
 import { Link, Redirect } from "react-router-dom";
 import axios from 'axios';
 import {Button,Card,InputGroup,FormGroup,Callout} from "@blueprintjs/core";
@@ -11,6 +12,7 @@ function Login(props) {
   const [password, setPassword] = useState("");
   const { setAuthTokens } = useAuth();
   const referer = props.location.state.referer || '/';
+  const {t} = props
 
   function postLogin() {
     axios.post("https://www.somePlace.com/auth/login", {
@@ -34,7 +36,7 @@ function Login(props) {
 
   return (
     <div>
-    <h1>Login</h1>
+    <h1>{t('menu.login')}</h1>
     <Card interactive={true} elevation={2}>
     <FormGroup>
     <InputGroup
@@ -43,7 +45,7 @@ function Login(props) {
     onChange={e => {
       setUserName(e.target.value);
     }}
-    placeholder="email"
+    placeholder={t('login.email')}
   />
   <InputGroup
     type="password"
@@ -51,15 +53,15 @@ function Login(props) {
     onChange={e => {
       setPassword(e.target.value);
     }}
-    placeholder="password"
+    placeholder={t('login.password')}
   />
-      <Button onClick={postLogin}>Sign In</Button>
+      <Button onClick={postLogin}>{t('login.btn-login')}</Button>
     </FormGroup>
-    <Link to="/signup">Don't have an account?</Link>
-      { isError &&<Callout>The username or password provided were incorrect!</Callout> }
+    <Link to="/signup">{t('login.no-account')}</Link>
+      { isError &&<Callout intent="danger">{t('login.incorrect-cred')}</Callout> }
     </Card>
     </div>
   );
 }
 
-export default Login;
+export default withTranslation()(Login);

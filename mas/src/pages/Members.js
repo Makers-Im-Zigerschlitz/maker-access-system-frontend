@@ -1,10 +1,12 @@
 import React from "react";
+import { withTranslation, Trans } from 'react-i18next';
 import {Table,Column} from "@blueprintjs/table";
 
-function Home(props) {
+function Members(props) {
+    const {t} = props
 return (
   <div>
-  <h1>Members</h1>
+  <h1>{t('menu.members')}</h1>
   <Table numRows={5}>
     <Column name="ID"/>
     <Column name="First name"/>
@@ -19,4 +21,4 @@ return (
 )
 }
 
-export default Home;
+export default withTranslation()(Members);

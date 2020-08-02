@@ -1,0 +1,30 @@
+{
+    "translations": {
+        "menu": {
+            "home": "Home",
+            "members": "Members",
+            "documents": "Documents",
+            "bookings": "Bookings",
+            "accounting": "Accounting",
+            "administration": "Administration",
+            "login": "Login",
+            "signup": "Sign up"
+        },
+        "login": {
+          "email": "email",
+          "password": "password",
+          "btn-login": "Log In",
+          "no-account": "Don't have an account?",
+          "incorrect-cred": "The username or password provided were incorrect!"
+        },
+        "signup": {
+          "email": "email",
+          "password": "password",
+          "retype-password": "retype password",
+          "btn-signup": "Sign Up",
+          "has-account": "Already have an account?",
+          "password-not-same": "The password fields don't match!",
+          "user-exists": "Username already exists"
+        }
+    }
+}
