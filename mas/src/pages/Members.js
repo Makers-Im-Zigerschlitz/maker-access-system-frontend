@@ -1,5 +1,5 @@
 import React from "react";
-import { withTranslation, Trans } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import {Table,Column} from "@blueprintjs/table";
 
 function Members(props) {

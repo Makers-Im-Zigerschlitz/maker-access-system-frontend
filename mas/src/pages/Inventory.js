@@ -1,13 +1,13 @@
 import React from "react";
 import { withTranslation } from 'react-i18next';
 
-function Bookings(props) {
+function Inventory(props) {
     const {t} = props
 return (
   <div>
-  <h1>{t('menu.bookings')}</h1>
+  <h1>{t('menu.inventory')}</h1>
   </div>
 )
 }
 
-export default withTranslation()(Bookings);
+export default withTranslation()(Inventory);

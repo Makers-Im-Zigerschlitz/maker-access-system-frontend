@@ -7,12 +7,13 @@ import Members from "./pages/Members";
 import Docs from "./pages/Docs";
 import Bookings from "./pages/Bookings";
 import Accounting from "./pages/Accounting";
+import Inventory from "./pages/Inventory";
 import { AuthContext } from "./context/auth";
 import Login from "./pages/Login";
 import Signup from './pages/Signup';
 import {Navbar,NavbarGroup,NavbarHeading,NavbarDivider,Button,Alignment} from "@blueprintjs/core";
 import logo from "./res/logo.png";
-import { withTranslation, Trans } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 function App(props) {
   //Authentification
@@ -44,6 +45,9 @@ function App(props) {
         <Link to="/bookings">
           <Button minimal="true" icon="calendar" text={t('menu.bookings')}/>
         </Link>
+        <Link to="/inventory">
+          <Button minimal="true" icon="box" text={t('menu.inventory')}/>
+        </Link>
         <Link to="/accounting">
           <Button minimal="true" icon="bank-account" text={t('menu.accounting')}/>
         </Link>
@@ -61,6 +65,7 @@ function App(props) {
           <Route path="/signup" component={Signup} />
           <Route path="/members" component={Members} />
           <Route path="/docs" component={Docs} />
+          <Route path="/inventory" component={Inventory} />
           <Route path="/bookings" component={Bookings} />
           <Route path="/accounting" component={Accounting} />
           <PrivateRoute path="/admin" component={Admin} />
