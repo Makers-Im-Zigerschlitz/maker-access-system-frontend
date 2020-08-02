@@ -1,0 +1,12 @@
+{
+    "translations": {
+        "menu": {
+            "home": "Home",
+            "members": "Members",
+            "documents": "Documents",
+            "bookings": "Bookings",
+            "accounting": "Accounting",
+            "administration": "Administration"
+        }
+    }
+}
