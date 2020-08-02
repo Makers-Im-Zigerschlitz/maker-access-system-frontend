@@ -1,8 +1,8 @@
-import React, {useState} from "react";
-import { Link,Redirect } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, Redirect } from "react-router-dom";
 import axios from 'axios';
-import {Button,Card,Input,FormGroup,Callout} from "@blueprintjs/core";
-import {useAuth} from "../context/auth";
+import {Button,Card,InputGroup,FormGroup,Callout} from "@blueprintjs/core";
+import { useAuth } from "../context/auth";
 
 function Login(props) {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -34,25 +34,25 @@ function Login(props) {
 
   return (
     <div>
-    <p>Login</p>
+    <h1>Login</h1>
     <Card interactive={true} elevation={2}>
     <FormGroup>
-      <Input
+    <InputGroup
         type="username"
-        value={userName}
-        onChange={e => {
-          setUserName(e.target.value);
-        }}
-        placeholder="email"
-      />
-      <Input
-        type="password"
-        value={password}
-        onChange={e => {
-          setPassword(e.target.value);
-        }}
-        placeholder="password"
-      />
+    value={userName}
+    onChange={e => {
+      setUserName(e.target.value);
+    }}
+    placeholder="email"
+  />
+  <InputGroup
+    type="password"
+    value={password}
+    onChange={e => {
+      setPassword(e.target.value);
+    }}
+    placeholder="password"
+  />
       <Button onClick={postLogin}>Sign In</Button>
     </FormGroup>
     <Link to="/signup">Don't have an account?</Link>

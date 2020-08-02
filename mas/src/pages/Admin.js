@@ -11,7 +11,7 @@ function Admin(props) {
 
   return (
     <div>
-      <div>Admin Page</div>
+      <div><h1>Administration</h1></div>
       <Button onClick={logOut}>Log out</Button>
     </div>
   );
