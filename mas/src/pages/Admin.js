@@ -1,8 +1,10 @@
 import React from "react";
+import { withTranslation, Trans } from 'react-i18next';
 import {Button} from "@blueprintjs/core"
 import { useAuth } from "../context/auth";
 
 function Admin(props) {
+  const {t} = props
   const { setAuthTokens } = useAuth();
 
   function logOut() {
@@ -11,10 +13,10 @@ function Admin(props) {
 
   return (
     <div>
-      <div><h1>Administration</h1></div>
+      <div><h1>{t('menu.administration')}</h1></div>
       <Button onClick={logOut}>Log out</Button>
     </div>
   );
 }
 
-export default Admin;
+export default withTranslation()(Admin);

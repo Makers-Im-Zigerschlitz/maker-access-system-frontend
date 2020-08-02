@@ -1,11 +1,13 @@
 import React from "react";
+import { withTranslation, Trans } from 'react-i18next';
 
 function Home(props) {
+  const {t} = props
 return (
   <div>
-  <h1>Home page</h1>
+  <h1>{t('menu.home')}</h1>
   </div>
 )
 }
 
-export default Home;
+export default withTranslation()(Home);
