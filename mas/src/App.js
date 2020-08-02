@@ -6,6 +6,7 @@ import Admin from "./pages/Admin";
 import Members from "./pages/Members";
 import Docs from "./pages/Docs";
 import Bookings from "./pages/Bookings";
+import Accounting from "./pages/Accounting";
 import { AuthContext } from "./context/auth";
 import Login from "./pages/Login";
 import Signup from './pages/Signup';
@@ -39,6 +40,9 @@ function App(props) {
         <Link to="/bookings">
           <Button minimal="true" icon="calendar" text="Bookings"/>
         </Link>
+        <Link to="/accounting">
+          <Button minimal="true" icon="bank-account" text="Accounting"/>
+        </Link>
       </Navbar.Group>
       <Navbar.Group align={Alignment.RIGHT}>
         <Link to="/admin">
@@ -52,6 +56,7 @@ function App(props) {
           <Route path="/members" component={Members} />
           <Route path="/docs" component={Docs} />
           <Route path="/bookings" component={Bookings} />
+          <Route path="/accounting" component={Accounting} />
           <PrivateRoute path="/admin" component={Admin} />
     </Router>
     </AuthContext.Provider>
