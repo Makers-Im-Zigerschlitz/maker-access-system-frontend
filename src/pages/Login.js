@@ -15,7 +15,7 @@ function Login(props) {
   const {t} = props
 
   function postLogin() {
-    axios.post("http://localhost:4000/auth/dologin", {
+    axios.post("/auth/dologin", {
       userName,
       password
     }).then(result => {
