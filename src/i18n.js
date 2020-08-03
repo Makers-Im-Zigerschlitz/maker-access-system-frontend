@@ -15,7 +15,7 @@ i18n
         de: languageDE
     },
     /* default language when load the website in browser */
-    lng: "en",
+    lng: "de",
     /* When react i18next not finding any language to as default in borwser */
     fallbackLng: "en",
     /* debugger For Development environment */

@@ -6,7 +6,7 @@ function Footer(props) {
   const {t} = props
 return (
   <Card elevation={Elevation.TWO}>
-  <p>Maker Access System</p>
+  <p>{t('footer.copyright')}</p>
   </Card>
 )
 }

@@ -13,9 +13,10 @@ import { AuthContext } from "./context/auth";
 import Login from "./pages/Login";
 import Signup from './pages/Signup';
 import Footer from './pages/Footer';
-import {Navbar,NavbarGroup,NavbarHeading,NavbarDivider,Button,Alignment,Card,Elevation} from "@blueprintjs/core";
+import {Navbar,NavbarGroup,NavbarHeading,NavbarDivider,Button,Alignment} from "@blueprintjs/core";
 import logo from "./res/logo.png";
 import { withTranslation } from 'react-i18next';
+import i18n from 'i18next'
 
 function App(props) {
   //Authentification
@@ -26,7 +27,9 @@ function App(props) {
     setAuthTokens(data);
   }
   //Localization
-  const [lang, setLang]=useState("en");
+  const changeLanguage = (lng) => {
+  i18n.changeLanguage(lng);
+}
   const {t} = props
   return (
     <div className="App">
@@ -56,8 +59,8 @@ function App(props) {
         </Link>
       </NavbarGroup>
       <NavbarGroup align={Alignment.RIGHT}>
-      <Button onClick={() => {setLang("de");props.i18n.changeLanguage("de")}}>DE</Button>
-      <Button onClick={() => {setLang("en");props.i18n.changeLanguage("en")}}>EN</Button>
+      <Button onClick={() => changeLanguage('de')}>DE</Button>
+      <Button onClick={() => changeLanguage('en')}>EN</Button>
         <Link to="/admin">
           <Button intent="primary" icon="log-in" text={t('menu.administration')}/>
         </Link>

@@ -26,6 +26,9 @@
           "has-account": "Already have an account?",
           "password-not-same": "The password fields don't match!",
           "user-exists": "Username already exists"
+        },
+        "footer": {
+          "copyright": "MAS (Maker Access System) by Makers im Zigerschlitz 2020"
         }
     }
 }

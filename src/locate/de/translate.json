@@ -26,6 +26,9 @@
           "has-account": "Haben Sie bereits ein Konto?",
           "password-not-same": "Die eingegebenen Passwörter stimmen nicht überein",
           "user-exists": "Der Benutzername existiert bereits"
+        },
+        "footer": {
+          "copyright": "MAS (Maker Access System) von Makers im Zigerschlitz 2020"
         }
     }
 }
