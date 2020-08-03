@@ -32,7 +32,7 @@ function App(props) {
 }
   const {t} = props
   return (
-    <div className="App">
+    <div id="App">
     <AuthContext.Provider value={{authTokens, setAuthTokens: setTokens}}>
     <Router>
     <Navbar id="Navbar">

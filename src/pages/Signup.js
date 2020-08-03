@@ -1,11 +1,12 @@
 import React from "react";
 import { withTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import {Button,Card,InputGroup,FormGroup} from "@blueprintjs/core"
+import {Button,Card,InputGroup,FormGroup,Elevation} from "@blueprintjs/core"
 
 function Signup(props) {
   const {t} = props
   return (
+    <Card id="content" elevation={Elevation.TWO}>
     <div>
     <h1>{t('menu.signup')}</h1>
     <Card>
@@ -18,6 +19,7 @@ function Signup(props) {
       <Link to="/login">{t('signup.has-account')}</Link>
     </Card>
     </div>
+    </Card>
   );
 }
 

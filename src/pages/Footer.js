@@ -5,7 +5,7 @@ import {Card,Elevation} from "@blueprintjs/core";
 function Footer(props) {
   const {t} = props
 return (
-  <Card elevation={Elevation.TWO}>
+  <Card id="footer" elevation={Elevation.TWO}>
   <p>{t('footer.copyright')}</p>
   </Card>
 )

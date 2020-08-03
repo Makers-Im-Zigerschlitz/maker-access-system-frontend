@@ -1,6 +1,6 @@
 import React from "react";
 import { withTranslation } from 'react-i18next';
-import {Button} from "@blueprintjs/core"
+import {Button,Card,Elevation} from "@blueprintjs/core"
 import { useAuth } from "../context/auth";
 
 function Admin(props) {
@@ -12,10 +12,12 @@ function Admin(props) {
   }
 
   return (
+    <Card id="content" elevation={Elevation.TWO}>
     <div>
       <div><h1>{t('menu.administration')}</h1></div>
       <Button onClick={logOut}>Log out</Button>
     </div>
+    </Card>
   );
 }
 

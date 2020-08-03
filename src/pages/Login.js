@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { withTranslation } from 'react-i18next';
 import { Link, Redirect } from "react-router-dom";
 import axios from 'axios';
-import {Button,Card,InputGroup,FormGroup,Callout} from "@blueprintjs/core";
+import {Button,Card,InputGroup,FormGroup,Callout,Elevation} from "@blueprintjs/core";
 import { useAuth } from "../context/auth";
 
 function Login(props) {
@@ -35,6 +35,7 @@ function Login(props) {
   }
 
   return (
+    <Card id="content" elevation={Elevation.TWO}>
     <div>
     <h1>{t('menu.login')}</h1>
     <Card interactive={true} elevation={2}>
@@ -61,6 +62,7 @@ function Login(props) {
       { isError &&<Callout intent="danger">{t('login.incorrect-cred')}</Callout> }
     </Card>
     </div>
+    </Card>
   );
 }
 
