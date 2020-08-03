@@ -1,0 +1,11 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  width:1200px;
+  height:100%;
+  margin:auto;
+  background-color: #A7B6C2;
+}
+#Navbar {
+  background-color: #8A9BA8;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import './App.css';
 import PrivateRoute from './PrivateRoute';
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
@@ -11,7 +12,8 @@ import Inventory from "./pages/Inventory";
 import { AuthContext } from "./context/auth";
 import Login from "./pages/Login";
 import Signup from './pages/Signup';
-import {Navbar,NavbarGroup,NavbarHeading,NavbarDivider,Button,Alignment} from "@blueprintjs/core";
+import Footer from './pages/Footer';
+import {Navbar,NavbarGroup,NavbarHeading,NavbarDivider,Button,Alignment,Card,Elevation} from "@blueprintjs/core";
 import logo from "./res/logo.png";
 import { withTranslation } from 'react-i18next';
 
@@ -27,9 +29,10 @@ function App(props) {
   const [lang, setLang]=useState("en");
   const {t} = props
   return (
+    <div className="App">
     <AuthContext.Provider value={{authTokens, setAuthTokens: setTokens}}>
     <Router>
-    <Navbar>
+    <Navbar id="Navbar">
     <NavbarGroup align={Alignment.LEFT}>
         <NavbarHeading><img src={logo} alt="Logo" height="40px"/></NavbarHeading>
         <NavbarDivider />
@@ -71,6 +74,8 @@ function App(props) {
           <PrivateRoute path="/admin" component={Admin} />
     </Router>
     </AuthContext.Provider>
+    <Footer/>
+    </div>
   );
 }
 export default withTranslation()(App);

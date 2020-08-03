@@ -2,15 +2,13 @@ import React from "react";
 import { withTranslation } from 'react-i18next';
 import {Card,Elevation} from "@blueprintjs/core";
 
-function Home(props) {
+function Footer(props) {
   const {t} = props
 return (
   <Card elevation={Elevation.TWO}>
-  <div>
-  <h1>{t('menu.home')}</h1>
-  </div>
+  <p>Maker Access System</p>
   </Card>
 )
 }
 
-export default withTranslation()(Home);
+export default withTranslation()(Footer);
