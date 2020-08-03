@@ -8,6 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import "../node_modules/@blueprintjs/core/lib/css/blueprint.css";
 import "../node_modules/@blueprintjs/icons/lib/css/blueprint-icons.css";
 import "../node_modules/@blueprintjs/table/lib/css/table.css";
+import "../node_modules/@blueprintjs/select/lib/css/blueprint-select.css";
 
 ReactDOM.render(
     <I18nextProvider i18n={i18n}>

@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Signup from './pages/Signup';
 import Footer from './pages/Footer';
 import {Navbar,NavbarGroup,NavbarHeading,NavbarDivider,Button,Alignment} from "@blueprintjs/core";
+import {Select} from "@blueprintjs/select";
 import logo from "./res/logo.png";
 import { withTranslation } from 'react-i18next';
 import i18n from 'i18next'
@@ -31,6 +32,8 @@ function App(props) {
   i18n.changeLanguage(lng);
 }
   const {t} = props
+  const av_langs =["de","en"];
+  const lang_items = av_langs.map((lang) => <Button onClick={() => changeLanguage({lang})}>{lang}</Button>);
   return (
     <div id="App">
     <AuthContext.Provider value={{authTokens, setAuthTokens: setTokens}}>
@@ -59,6 +62,7 @@ function App(props) {
         </Link>
       </NavbarGroup>
       <NavbarGroup align={Alignment.RIGHT}>
+      <Select items={lang_items}/>
       <Button onClick={() => changeLanguage('de')}>DE</Button>
       <Button onClick={() => changeLanguage('en')}>EN</Button>
         <Link to="/admin">
