@@ -32,8 +32,6 @@ function App(props) {
   i18n.changeLanguage(lng);
 }
   const {t} = props
-  const av_langs =["de","en"];
-  const lang_items = av_langs.map((lang) => <Button onClick={() => changeLanguage({lang})}>{lang}</Button>);
   return (
     <div id="App">
     <AuthContext.Provider value={{authTokens, setAuthTokens: setTokens}}>
@@ -62,7 +60,6 @@ function App(props) {
         </Link>
       </NavbarGroup>
       <NavbarGroup align={Alignment.RIGHT}>
-      <Select items={lang_items}/>
       <Button onClick={() => changeLanguage('de')}>DE</Button>
       <Button onClick={() => changeLanguage('en')}>EN</Button>
         <Link to="/admin">
