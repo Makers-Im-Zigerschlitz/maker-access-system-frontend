@@ -57,13 +57,16 @@ function App(props) {
         <Link to="/accounting">
           <Button minimal="true" icon="bank-account" text={t('menu.accounting')}/>
         </Link>
-      </NavbarGroup>
-      <NavbarGroup align={Alignment.RIGHT}>
-      <Button onClick={() => changeLanguage('de')}>DE</Button>
-      <Button onClick={() => changeLanguage('en')}>EN</Button>
         <Link to="/admin">
           <Button intent="primary" icon="log-in" text={t('menu.administration')}/>
         </Link>
+      </NavbarGroup>
+      <NavbarGroup align={Alignment.RIGHT}>
+        <NavbarDivider />
+        <select onChange={e => changeLanguage(e.target.value)}>
+          <option value="de">Deutsch</option>
+          <option value="en">English</option>
+        </select>
       </NavbarGroup>
     </Navbar>
         <Route exact path="/" component={Home} />

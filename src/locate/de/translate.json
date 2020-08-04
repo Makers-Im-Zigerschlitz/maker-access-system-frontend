@@ -29,6 +29,9 @@
         },
         "footer": {
           "copyright": "MAS (Maker Access System) von Makers im Zigerschlitz 2020"
+        },
+        "admin": {
+          "logout": "Ausloggen"
         }
     }
 }
