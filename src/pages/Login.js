@@ -16,7 +16,7 @@ function Login(props) {
 
   function postLogin() {
     axios.post("/auth/dologin", {
-      userName,
+      username,
       password
     }).then(result => {
       if (result.status === 200) {
