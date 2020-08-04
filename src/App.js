@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Signup from './pages/Signup';
 import Footer from './pages/Footer';
 import {Navbar,NavbarGroup,NavbarHeading,NavbarDivider,Button,Alignment} from "@blueprintjs/core";
+import {Select} from "@blueprintjs/select";
 import logo from "./res/logo.png";
 import { withTranslation } from 'react-i18next';
 import i18n from 'i18next'
