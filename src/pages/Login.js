@@ -8,7 +8,7 @@ import { useAuth } from "../context/auth";
 function Login(props) {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [userName, setUserName] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const { setAuthTokens } = useAuth();
   const referer = props.location.state.referer || '/';
@@ -42,7 +42,7 @@ function Login(props) {
     <FormGroup>
     <InputGroup
         type="username"
-    value={userName}
+    value={username}
     onChange={e => {
       setUserName(e.target.value);
     }}
