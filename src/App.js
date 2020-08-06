@@ -22,6 +22,7 @@ function App(props) {
   //Authentification
   const existingTokens = JSON.parse(localStorage.getItem("tokens"));
   const [authTokens, setAuthTokens] = useState(existingTokens);
+  const [userData, setUserData] = useState({hits: []});
   const setTokens = (data) => {
     localStorage.setItem("tokens", JSON.stringify(data));
     setAuthTokens(data);
@@ -57,6 +58,12 @@ function App(props) {
         <Link to="/accounting">
           <Button minimal="true" icon="bank-account" text={t('menu.accounting')}/>
         </Link>
+        <div>
+  {userData.hits
+    ? userData.hits.map(item=><p key={item.objectID}>{item.uid} {item.username}</p>)
+    : <Link to="/login"><Button intent="primary" icon="log-in" text={t('menu.login')}/></Link>
+  }
+</div>
         <Link to="/admin">
           <Button intent="primary" icon="log-in" text={t('menu.administration')}/>
         </Link>
