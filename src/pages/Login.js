@@ -3,15 +3,13 @@ import { withTranslation } from 'react-i18next';
 import { Link, Redirect } from "react-router-dom";
 import axios from 'axios';
 import {Button,Card,InputGroup,FormGroup,Callout,Elevation} from "@blueprintjs/core";
-import { useAuth } from "../context/auth";
 
 function Login(props) {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isError, setIsError] = useState(false);
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const { setAuthTokens } = useAuth();
-  const referer = props.location.state.referer || '/';
+  const referer = props.location || '/';
   const {t} = props
 
   function postLogin() {
@@ -19,8 +17,7 @@ function Login(props) {
       username,
       password
     }).then(result => {
-      if (result.status === 200) {
-        setAuthTokens(result.data);
+      if (result.data.successful===true) {
         setLoggedIn(true);
       } else {
         setIsError(true);
@@ -35,7 +32,7 @@ function Login(props) {
   }
 
   return (
-    <Card id="content" elevation={Elevation.TWO}>
+    <Card id="content" elevation={Elevation.TWO} width="50%">
     <div>
     <h1>{t('menu.login')}</h1>
     <Card interactive={true} elevation={2}>

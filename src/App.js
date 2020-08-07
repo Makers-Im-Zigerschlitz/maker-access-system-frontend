@@ -9,7 +9,6 @@ import Docs from "./pages/Docs";
 import Bookings from "./pages/Bookings";
 import Accounting from "./pages/Accounting";
 import Inventory from "./pages/Inventory";
-import { AuthContext } from "./context/auth";
 import Login from "./pages/Login";
 import Signup from './pages/Signup';
 import Footer from './pages/Footer';
@@ -20,13 +19,9 @@ import i18n from 'i18next'
 
 function App(props) {
   //Authentification
-  const existingTokens = JSON.parse(localStorage.getItem("tokens"));
-  const [authTokens, setAuthTokens] = useState(existingTokens);
-  const [userData, setUserData] = useState({hits: []});
-  const setTokens = (data) => {
-    localStorage.setItem("tokens", JSON.stringify(data));
-    setAuthTokens(data);
-  }
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [userInfo, setUserInfo] = useState("");
+
   //Localization
   const changeLanguage = (lng) => {
   i18n.changeLanguage(lng);
@@ -34,7 +29,6 @@ function App(props) {
   const {t} = props
   return (
     <div id="App">
-    <AuthContext.Provider value={{authTokens, setAuthTokens: setTokens}}>
     <Router>
     <Navbar id="Navbar">
     <NavbarGroup align={Alignment.LEFT}>
@@ -58,17 +52,17 @@ function App(props) {
         <Link to="/accounting">
           <Button minimal="true" icon="bank-account" text={t('menu.accounting')}/>
         </Link>
-        <div>
-  {userData.hits
-    ? userData.hits.map(item=><p key={item.objectID}>{item.uid} {item.username}</p>)
-    : <Link to="/login"><Button intent="primary" icon="log-in" text={t('menu.login')}/></Link>
-  }
-</div>
         <Link to="/admin">
           <Button intent="primary" icon="log-in" text={t('menu.administration')}/>
         </Link>
       </NavbarGroup>
       <NavbarGroup align={Alignment.RIGHT}>
+      <div>
+{!loggedIn
+  ? <Link to="/login"><Button intent="primary" icon="log-in" text={t('menu.login')}/></Link>
+  : <p>{userInfo.uid}</p>
+}
+</div>
         <NavbarDivider />
         <select onChange={e => changeLanguage(e.target.value)}>
           <option value="de">Deutsch</option>
@@ -86,7 +80,6 @@ function App(props) {
           <Route path="/accounting" component={Accounting} />
           <PrivateRoute path="/admin" component={Admin} />
     </Router>
-    </AuthContext.Provider>
     <Footer/>
     </div>
   );
