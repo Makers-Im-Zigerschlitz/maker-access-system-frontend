@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React from "react";
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import './App.css';
 import PrivateRoute from './PrivateRoute';
@@ -19,8 +19,7 @@ import {Navbar,NavbarGroup,NavbarHeading,NavbarDivider,Button,Alignment} from "@
 import logo from "./res/logo.png";
 import { withTranslation } from 'react-i18next';
 import i18n from 'i18next'
-import axios from 'axios'
-import { UserProvider, UserDispatchContext} from "./context/UserProvider";
+import { UserProvider} from "./context/UserProvider";
 
 
 function App(props) {

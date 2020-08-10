@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { withTranslation } from 'react-i18next';
 import { Link,Redirect } from "react-router-dom";
 import axios from 'axios';
-import {Button,Card,InputGroup,FormGroup,Callout,Elevation,Form} from "@blueprintjs/core";
+import {Button,Card,InputGroup,FormGroup,Callout,Elevation} from "@blueprintjs/core";
 import {UserContext, UserDispatchContext} from '../context/UserProvider'
 
 function Login(props) {
@@ -13,6 +13,8 @@ function Login(props) {
 
   const userDetails = React.useContext(UserContext);
   const setUserDetails = useContext(UserDispatchContext);
+
+  const referer = props.location.state.referer || '/';
 
 function getUserDetails() {
   axios.get("/auth/me").then(result => {
@@ -54,8 +56,8 @@ function getUserDetails() {
     });
   }
   if (userDetails.loggedIn) {
-    console.log("User logged in - Sending to profile page");
-    return <Redirect to="/profile" />;
+    console.log("User logged in - Sending to referer");
+    return <Redirect to={referer} />;
   } else {
     console.log("User not logged in - Serving Login-Page");
     return (
@@ -95,40 +97,6 @@ function getUserDetails() {
       </Card>
   )
   }
-
-  return (
-    <Card id="content" elevation={Elevation.TWO} width="50%">
-    <div>
-    <h1>{t('menu.login')}</h1>
-    {userDetails.loggedIn
-      ? <h2>Hey, {userDetails.username}! You're already logged in!</h2>
-      : <Card interactive={true} elevation={2}>
-        <FormGroup>
-        <InputGroup
-          type="username"
-          value={userField}
-          onChange={e => {
-            setUserField(e.target.value);
-          }}
-          placeholder={t('login.email')}
-        />
-        <InputGroup
-          type="password"
-          value={passField}
-          onChange={e => {
-            setPassField(e.target.value);
-          }}
-          placeholder={t('login.password')}
-        />
-          <Button type="submit" onClick={postLogin}>{t('login.btn-login')}</Button>
-        </FormGroup>
-        <Link to="/signup">{t('login.no-account')}</Link>
-        { isError &&<Callout intent="danger">{t('login.incorrect-cred')}</Callout> }
-        </Card>
-  }
-  </div>
-  </Card>
-  );
 }
 
 export default withTranslation()(Login);

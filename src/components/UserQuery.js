@@ -1,6 +1,6 @@
-import React, {useContext} from "react";
+import {useContext} from "react";
 import axios from 'axios'
-import { UserProvider, UserDispatchContext} from "../context/UserProvider";
+import { UserDispatchContext} from "../context/UserProvider";
 
 function UserQuery(props) {
   const setUserDetails = useContext(UserDispatchContext);
