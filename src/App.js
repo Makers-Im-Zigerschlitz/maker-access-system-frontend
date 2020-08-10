@@ -16,7 +16,7 @@ import Profile from './pages/Profile';
 import NotFound from './pages/NotFound';
 import LoginButton from './components/LoginButton';
 import UserQuery from './components/UserQuery';
-import {Navbar,NavbarGroup,NavbarHeading,NavbarDivider,Button,Alignment} from "@blueprintjs/core";
+import {Navbar,NavbarGroup,NavbarHeading,NavbarDivider,Button,ButtonGroup,Alignment} from "@blueprintjs/core";
 import logo from "./res/logo.png";
 import { withTranslation } from 'react-i18next';
 import i18n from 'i18next'
@@ -46,6 +46,7 @@ function App(props) {
     <NavbarGroup align={Alignment.LEFT}>
         <NavbarHeading><img src={logo} alt="Logo" height="40px"/></NavbarHeading>
         <NavbarDivider />
+        <ButtonGroup>
         <Link to="/">
           <Button icon="home" text={t('menu.home')}/>
         </Link>
@@ -67,6 +68,7 @@ function App(props) {
         <Link to="/admin">
           <Button icon="log-in" text={t('menu.administration')}/>
         </Link>
+        </ButtonGroup>
       </NavbarGroup>
     </Navbar>
     <Switch>
