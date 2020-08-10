@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import './App.css';
 import PrivateRoute from './PrivateRoute';
 import Home from "./pages/Home";
@@ -69,16 +69,19 @@ function App(props) {
       </select>
       </NavbarGroup>
     </Navbar>
+    <Switch>
         <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
-          <PrivateRoute path="/members" component={Members} />
-          <PrivateRoute path="/docs" component={Docs} />
-          <PrivateRoute path="/inventory" component={Inventory} />
-          <PrivateRoute path="/bookings" component={Bookings} />
-          <PrivateRoute path="/accounting" component={Accounting} />
-          <PrivateRoute path="/profile" component={Profile} />
-          <PrivateRoute path="/admin" component={Admin} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
+        <PrivateRoute path="/members" component={Members} />
+        <PrivateRoute path="/docs" component={Docs} />
+        <PrivateRoute path="/inventory" component={Inventory} />
+        <PrivateRoute path="/bookings" component={Bookings} />
+        <PrivateRoute path="/accounting" component={Accounting} />
+        <PrivateRoute path="/profile" component={Profile} />
+        <PrivateRoute path="/admin" component={Admin} />
+        <Route component={NotFound} />
+        </Switch>
     </Router>
     <Footer/>
     </div>
