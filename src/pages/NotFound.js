@@ -8,7 +8,8 @@ function NotFound(props) {
   return (
     <Card id="content" elevation={Elevation.TWO}>
     <div>
-    <h1>404 {t('menu.notfound')}</h1>
+    <h1>404</h1>
+    <h2>{t('menu.notfound')}</h2>
     </div>
     </Card>
   )

@@ -14,7 +14,7 @@ function Login(props) {
   const userDetails = React.useContext(UserContext);
   const setUserDetails = useContext(UserDispatchContext);
 
-  const referer = props.location.state.referer || '/';
+  const referer = props.location.state ? props.location.state.referer : '/';
 
 function getUserDetails() {
   axios.get("/auth/me").then(result => {
