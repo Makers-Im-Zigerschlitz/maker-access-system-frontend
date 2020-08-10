@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { withTranslation } from 'react-i18next';
 import { Link,Redirect } from "react-router-dom";
 import axios from 'axios';
-import {Button,Card,InputGroup,FormGroup,Callout,Elevation} from "@blueprintjs/core";
+import {Button,Card,InputGroup,FormGroup,Callout,Elevation,Form} from "@blueprintjs/core";
 import {UserContext, UserDispatchContext} from '../context/UserProvider'
 
 function Login(props) {
@@ -63,6 +63,7 @@ function getUserDetails() {
         <div>
           <h1>{t('menu.login')}</h1>
             <Card interactive={true} elevation={2}>
+            <form>
             <FormGroup>
               <InputGroup
                 type="username"
@@ -84,6 +85,7 @@ function getUserDetails() {
             </FormGroup>
             <Link to="/signup">{t('login.no-account')}</Link>
             { isError &&<Callout intent="danger">{t('login.incorrect-cred')}</Callout> }
+            </form>
           </Card>
         </div>
       </Card>

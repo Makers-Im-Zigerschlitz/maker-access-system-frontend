@@ -65,6 +65,7 @@ function Profile(props) {
     <p>{t('profile.passwordhash')}: {userDetails.password}</p>
     <p>{t('profile.level')}: {userDetails.level}</p>
     <h2>{t('profile.changepass')}:</h2>
+    <form>
     <FormGroup>
       <InputGroup
         type="password"
@@ -86,6 +87,7 @@ function Profile(props) {
     </FormGroup>
     { isErrorSend &&<Callout intent="danger">{t('profile.errorsend')}</Callout> }
     { isErrorRep &&<Callout intent="danger">{t('profile.errorrep')}</Callout> }
+    </form>
     </Card>
   )
 }
