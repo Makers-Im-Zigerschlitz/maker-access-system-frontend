@@ -65,7 +65,11 @@ function Profile(props) {
     <p>{t('profile.passwordhash')}: {userDetails.password}</p>
     <p>{t('profile.level')}: {userDetails.level}</p>
     <h2>{t('profile.changepass')}:</h2>
-    <form>
+    <form
+        onSubmit={e => {
+          e.preventDefault();
+        }}
+      >
     <FormGroup>
       <InputGroup
         type="password"

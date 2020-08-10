@@ -11,7 +11,6 @@ function Home(props) {
     <Card id="content" elevation={Elevation.TWO}>
     <div>
     <h1>{t('menu.home')}</h1>
-    <h2>{userDetails.username}</h2>
     </div>
     </Card>
   )

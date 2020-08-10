@@ -63,7 +63,11 @@ function getUserDetails() {
         <div>
           <h1>{t('menu.login')}</h1>
             <Card interactive={true} elevation={2}>
-            <form>
+            <form
+                onSubmit={e => {
+                  e.preventDefault();
+                }}
+              >
             <FormGroup>
               <InputGroup
                 type="username"

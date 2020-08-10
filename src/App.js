@@ -14,6 +14,7 @@ import Signup from './pages/Signup';
 import Footer from './pages/Footer';
 import Profile from './pages/Profile';
 import LoginButton from './components/LoginButton';
+import UserQuery from './components/UserQuery';
 import {Navbar,NavbarGroup,NavbarHeading,NavbarDivider,Button,Alignment} from "@blueprintjs/core";
 import logo from "./res/logo.png";
 import { withTranslation } from 'react-i18next';
@@ -23,30 +24,6 @@ import { UserProvider, UserDispatchContext} from "./context/UserProvider";
 
 
 function App(props) {
-  const setUserDetails = useContext(UserDispatchContext);
-  //Check if Auth already exists - if yes, get user information
-    axios.get("/auth/me").then(result => {
-      if (result.status===200) {
-      setUserDetails({
-        uid:result.data.uid,
-        username:result.data.username,
-        password:result.data.password,
-        level:result.data.level,
-        loggedIn:true,
-      });
-    } else {
-      setUserDetails({
-        uid:"",
-        username:"",
-        password:"",
-        level:"",
-        loggedIn:false,
-      })
-    }
-    }).catch(e => {
-      console.log(e);
-    });
-
   //Localization
   const changeLanguage = (lng) => {
   i18n.changeLanguage(lng);
@@ -54,6 +31,7 @@ function App(props) {
   const {t} = props
   return (
     <UserProvider>
+    <UserQuery/>
     <div id="App">
     <Router>
     <Navbar id="Navbar">
