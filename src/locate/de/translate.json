@@ -8,7 +8,9 @@
             "bookings": "Reservationen",
             "accounting": "Buchhaltung",
             "administration": "Administration",
+            "profile": "Profil",
             "login": "Login",
+            "logout": "Ausloggen",
             "signup": "Konto anlegen"
         },
         "login": {
@@ -32,6 +34,12 @@
         },
         "admin": {
           "logout": "Ausloggen"
+        },
+        "profile": {
+          "userid": "Benutzer-ID",
+          "username": "Benutzername",
+          "passwordhash": "Passwort Hash",
+          "level": "Benutzerlevel"
         }
     }
 }

@@ -1,27 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { withTranslation } from 'react-i18next';
-import { Link, Redirect } from "react-router-dom";
+import { Link,Redirect } from "react-router-dom";
 import axios from 'axios';
 import {Button,Card,InputGroup,FormGroup,Callout,Elevation} from "@blueprintjs/core";
-import { useAuth } from "../context/auth";
+import {UserContext, UserDispatchContext} from '../context/UserProvider'
 
 function Login(props) {
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [userField, setUserField] = useState("");
+  const [passField, setPassField] = useState("");
   const [isError, setIsError] = useState(false);
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const { setAuthTokens } = useAuth();
-  const referer = props.location.state.referer || '/';
   const {t} = props
+
+  const userDetails = React.useContext(UserContext);
+  const setUserDetails = useContext(UserDispatchContext);
+
+function getUserDetails() {
+  axios.get("/auth/me").then(result => {
+    if (result.status===200) {
+    setUserDetails({
+      uid:result.data.uid,
+      username:result.data.username,
+      password:result.data.password,
+      level:result.data.level,
+      loggedIn:true,
+    });
+  } else {
+    setUserDetails({
+      uid:"",
+      username:"",
+      password:"",
+      level:"",
+      loggedIn:false,
+    })
+  }
+  }).catch(e => {
+    setIsError(true);
+  });
+}
 
   function postLogin() {
     axios.post("/auth/dologin", {
-      userName,
-      password
+      username: userField,
+      password: passField
     }).then(result => {
-      if (result.status === 200) {
-        setAuthTokens(result.data);
-        setLoggedIn(true);
+      if (result.data.successful===true) {
+        getUserDetails();
+        setIsError(false);
       } else {
         setIsError(true);
       }
@@ -29,40 +53,75 @@ function Login(props) {
       setIsError(true);
     });
   }
-
-  if (isLoggedIn) {
-    return <Redirect to={referer} />;
+  if (userDetails.loggedIn) {
+    console.log("User logged in - Sending to profile page");
+    return <Redirect to="/profile" />;
+  } else {
+    console.log("User not logged in - Serving Login-Page");
+    return (
+      <Card id="content" elevation={Elevation.TWO} width="50%">
+        <div>
+          <h1>{t('menu.login')}</h1>
+            <Card interactive={true} elevation={2}>
+            <FormGroup>
+              <InputGroup
+                type="username"
+                value={userField}
+                onChange={e => {
+                  setUserField(e.target.value);
+                }}
+                placeholder={t('login.email')}
+              />
+              <InputGroup
+                type="password"
+                value={passField}
+                onChange={e => {
+                  setPassField(e.target.value);
+                }}
+                placeholder={t('login.password')}
+              />
+              <Button type="submit" onClick={postLogin}>{t('login.btn-login')}</Button>
+            </FormGroup>
+            <Link to="/signup">{t('login.no-account')}</Link>
+            { isError &&<Callout intent="danger">{t('login.incorrect-cred')}</Callout> }
+          </Card>
+        </div>
+      </Card>
+  )
   }
-
+  console.log("User not logged in - Serving Login-Page");
   return (
-    <Card id="content" elevation={Elevation.TWO}>
+    <Card id="content" elevation={Elevation.TWO} width="50%">
     <div>
     <h1>{t('menu.login')}</h1>
-    <Card interactive={true} elevation={2}>
-    <FormGroup>
-    <InputGroup
-        type="username"
-    value={userName}
-    onChange={e => {
-      setUserName(e.target.value);
-    }}
-    placeholder={t('login.email')}
-  />
-  <InputGroup
-    type="password"
-    value={password}
-    onChange={e => {
-      setPassword(e.target.value);
-    }}
-    placeholder={t('login.password')}
-  />
-      <Button onClick={postLogin}>{t('login.btn-login')}</Button>
-    </FormGroup>
-    <Link to="/signup">{t('login.no-account')}</Link>
-      { isError &&<Callout intent="danger">{t('login.incorrect-cred')}</Callout> }
-    </Card>
-    </div>
-    </Card>
+    {userDetails.loggedIn
+      ? <h2>Hey, {userDetails.username}! You're already logged in!</h2>
+      : <Card interactive={true} elevation={2}>
+        <FormGroup>
+        <InputGroup
+          type="username"
+          value={userField}
+          onChange={e => {
+            setUserField(e.target.value);
+          }}
+          placeholder={t('login.email')}
+        />
+        <InputGroup
+          type="password"
+          value={passField}
+          onChange={e => {
+            setPassField(e.target.value);
+          }}
+          placeholder={t('login.password')}
+        />
+          <Button type="submit" onClick={postLogin}>{t('login.btn-login')}</Button>
+        </FormGroup>
+        <Link to="/signup">{t('login.no-account')}</Link>
+        { isError &&<Callout intent="danger">{t('login.incorrect-cred')}</Callout> }
+        </Card>
+  }
+  </div>
+  </Card>
   );
 }
 
