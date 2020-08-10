@@ -11,7 +11,8 @@
             "profile": "Profil",
             "login": "Login",
             "logout": "Ausloggen",
-            "signup": "Konto anlegen"
+            "signup": "Konto anlegen",
+            "notfound": "Seite nicht gefunden"
         },
         "login": {
           "email": "Email",
