@@ -89,7 +89,7 @@ function getUserDetails() {
       </Card>
   )
   }
-  console.log("User not logged in - Serving Login-Page");
+
   return (
     <Card id="content" elevation={Elevation.TWO} width="50%">
     <div>

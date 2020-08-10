@@ -39,7 +39,10 @@
           "userid": "User-ID",
           "username": "Username",
           "passwordhash": "Password hash",
-          "level": "Userlevel"
+          "level": "Userlevel",
+          "changepass": "Change password",
+          "errorrep": "Password fields are not identical!",
+          "errorsend": "Error sending password update"
         }
     }
 }

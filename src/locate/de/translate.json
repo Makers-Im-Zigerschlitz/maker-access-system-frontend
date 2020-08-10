@@ -39,7 +39,10 @@
           "userid": "Benutzer-ID",
           "username": "Benutzername",
           "passwordhash": "Passwort Hash",
-          "level": "Benutzerlevel"
+          "level": "Benutzerlevel",
+          "changepass": "Passwort ändern",
+          "errorrep": "Password-Felder sind unterschiedlich!",
+          "errorsend": "Passwortänderung konnte nicht beantragt werden"
         }
     }
 }

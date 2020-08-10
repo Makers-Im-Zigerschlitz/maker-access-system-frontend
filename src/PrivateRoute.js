@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route,Redirect } from 'react-router-dom';
-import {UserContext, UserDispatchContext} from './context/UserProvider'
+import {UserContext} from './context/UserProvider'
 
 function PrivateRoute({ component: Component, ...rest }) {
   const userDetails = React.useContext(UserContext);
