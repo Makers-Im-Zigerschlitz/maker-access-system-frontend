@@ -3,6 +3,7 @@ import { withTranslation } from 'react-i18next';
 import { Link } from "react-router-dom";
 import {UserContext, UserDispatchContext} from '../context/UserProvider'
 import {Button} from "@blueprintjs/core";
+import axios from 'axios';
 
 
 
@@ -12,13 +13,21 @@ function LoginButton(props) {
   const setUserDetails = useContext(UserDispatchContext);
 
   function handleClick(e) {
-    setUserDetails({
-      uid:"",
-      username:"",
-      password:"",
-      level:false,
-      loggedIn:false,
-    })
+      axios.post("/auth/dologout").then(result =>
+        {
+          if (result.data.successful===true)
+          {
+            setUserDetails({
+              uid:"",
+              username:"",
+              password:"",
+              level:"",
+              loggedIn:false,
+            });
+          }
+        }).catch(e => {
+          console.log(e);
+        });
   }
 
   if (userDetails.loggedIn) {
