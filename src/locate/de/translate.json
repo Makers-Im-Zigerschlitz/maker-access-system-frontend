@@ -9,6 +9,7 @@
             "accounting": "Buchhaltung",
             "administration": "Administration",
             "profile": "Profil",
+            "devices": "Geräte",
             "login": "Login",
             "logout": "Ausloggen",
             "signup": "Konto anlegen",
@@ -44,6 +45,12 @@
           "changepass": "Passwort ändern",
           "errorrep": "Password-Felder sind unterschiedlich!",
           "errorsend": "Passwortänderung konnte nicht beantragt werden"
+        },
+        "devices": {
+          "lock":"Schloss",
+          "3dprinter":"3D Drucker",
+          "plotter":"Schneidmaschine",
+          "lasercutter":"Lasercutter"
         }
     }
 }

@@ -13,6 +13,7 @@ import Login from "./pages/Login";
 import Signup from './pages/Signup';
 import Footer from './pages/Footer';
 import Profile from './pages/Profile';
+import Devices from './pages/Devices';
 import NotFound from './pages/NotFound';
 import LoginButton from './components/LoginButton';
 import UserQuery from './components/UserQuery';
@@ -59,6 +60,9 @@ function App(props) {
         <Link to="/bookings">
           <Button icon="calendar" text={t('menu.bookings')}/>
         </Link>
+        <Link to="/devices">
+          <Button icon="cube" text={t('menu.devices')}/>
+        </Link>
         <Link to="/inventory">
           <Button icon="box" text={t('menu.inventory')}/>
         </Link>
@@ -79,6 +83,7 @@ function App(props) {
         <PrivateRoute path="/docs" component={Docs} />
         <PrivateRoute path="/inventory" component={Inventory} />
         <PrivateRoute path="/bookings" component={Bookings} />
+        <Route path="/devices" component={Devices} />
         <PrivateRoute path="/accounting" component={Accounting} />
         <PrivateRoute path="/profile" component={Profile} />
         <PrivateRoute path="/admin" component={Admin} />

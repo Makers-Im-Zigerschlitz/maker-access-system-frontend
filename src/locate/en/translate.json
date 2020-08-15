@@ -9,6 +9,7 @@
             "accounting": "Accounting",
             "administration": "Administration",
             "profile": "Profile",
+            "devices": "Devices",
             "login": "Login",
             "logout": "Logout",
             "signup": "Sign up",
@@ -44,6 +45,12 @@
           "changepass": "Change password",
           "errorrep": "Password fields are not identical!",
           "errorsend": "Error sending password update"
+        },
+        "devices": {
+          "lock":"Lock",
+          "3dprinter":"3D Printer",
+          "plotter":"Plotter",
+          "lasercutter":"Lasercutter"
         }
     }
 }
