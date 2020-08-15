@@ -26,16 +26,17 @@ function Lock(props) {
       });
     }
   return (
-    <Card className="dev-lock devicecard" elevation={Elevation.TWO} color="blue">
-    <div>
-    <Icon icon="key" iconSize="20px" alt={t('devices.lock')}/>
-    <h1>{props.name}</h1>
-    <h2>{props.description}</h2>
+    <Card className="dev-lock devicecard" elevation={Elevation.TWO}>
+      <div>
+        <div className="dev-logo"><Icon icon="key" iconSize="150px" alt={t('devices.lock')}/></div>
+        <div className="dev-content">
+          <h1>{props.name}</h1>
+          <h2>{props.description}</h2>
 
-    <Button onClick={open} text="open"/>
-    <Button onClick={close} text="close"/>
-
-    </div>
+          <Button onClick={open} text="open"/>
+          <Button onClick={close} text="close"/>
+        </div>
+      </div>
     </Card>
   )
 }

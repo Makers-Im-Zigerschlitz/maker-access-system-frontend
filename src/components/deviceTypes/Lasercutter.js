@@ -6,11 +6,13 @@ function Lasercutter(props) {
   const {t} = props
   return (
     <Card className="dev-lasercutter devicecard" elevation={Elevation.TWO}>
-    <div>
-    <Icon icon="flame" iconSize="20px" alt={t('devices.lasercutter')}/>
-    <h1>{props.name}</h1>
-    <h2>{props.description}</h2>
-    </div>
+      <div>
+        <div className="dev-logo"><Icon icon="flame" iconSize="150px" alt={t('devices.lasercutter')}/></div>
+        <div className="dev-content">
+          <h1>{props.name}</h1>
+          <h2>{props.description}</h2>
+        </div>
+      </div>
     </Card>
   )
 }

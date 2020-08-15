@@ -6,11 +6,13 @@ function Plotter(props) {
   const {t} = props
   return (
     <Card className="dev-plotter devicecard" elevation={Elevation.TWO}>
-    <div>
-    <Icon icon="cut" iconSize="20px" alt={t('devices.plotter')}/>
-    <h1>{props.name}</h1>
-    <h2>{props.description}</h2>
-    </div>
+      <div>
+        <div className="dev-logo"><Icon icon="cut" iconSize="150px" alt={t('devices.plotter')}/></div>
+        <div className="dev-content">
+          <h1>{props.name}</h1>
+          <h2>{props.description}</h2>
+        </div>
+      </div>
     </Card>
   )
 }

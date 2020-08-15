@@ -35,6 +35,7 @@ return (
   <div>
   <h1>{t('menu.devices')}</h1>
   </div>
+  <div className="alldevs">
   {data.map(item => (
     React.createElement(Components[item.deviceType],
       {
@@ -44,6 +45,7 @@ return (
       }
     )
   ))}
+  </div>
   </Card>
 
 )
