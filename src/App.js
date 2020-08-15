@@ -33,7 +33,7 @@ function App(props) {
   return (
     <UserProvider>
     <UserQuery/>
-    <div id="App" class="bp3-dark">
+    <div id="App">
     <Router>
     <Navbar id="Navbar">
     <NavbarGroup align={Alignment.RIGHT}>

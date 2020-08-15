@@ -1,21 +1,14 @@
 #App {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content:center;
-  width:95%;
-  height:95%;
-  margin:auto;
+
 }
 #Navbar {
 
 }
 #content {
-  flex:2;
-  /* width:1200px; */
+
 }
 .devicecard {
-  padding:20px;
+  margin:20px;
   width:400px;
 }
 .dev-lock {
