@@ -1,56 +1,56 @@
 {
-    "translations": {
-        "menu": {
-            "home": "Startseite",
-            "members": "Mitglieder",
-            "documents": "Dokumente",
-            "inventory": "Inventar",
-            "bookings": "Reservationen",
-            "accounting": "Buchhaltung",
-            "administration": "Administration",
-            "profile": "Profil",
-            "devices": "Geräte",
-            "login": "Login",
-            "logout": "Ausloggen",
-            "signup": "Konto anlegen",
-            "notfound": "Seite nicht gefunden"
-        },
-        "login": {
-          "email": "Email",
-          "password": "Passwort",
-          "btn-login": "Einloggen",
-          "no-account": "Noch kein Konto?",
-          "incorrect-cred": "Der Benutzername oder das Passwort sind falsch!"
-        },
-        "signup": {
-          "email": "Email",
-          "password": "Passwort",
-          "retype-password": "Passwort wiederholen",
-          "btn-signup": "Konto anlegen",
-          "has-account": "Haben Sie bereits ein Konto?",
-          "password-not-same": "Die eingegebenen Passwörter stimmen nicht überein",
-          "user-exists": "Der Benutzername existiert bereits"
-        },
-        "footer": {
-          "copyright": "MAS (Maker Access System) von Makers im Zigerschlitz 2020"
-        },
-        "admin": {
-          "logout": "Ausloggen"
-        },
-        "profile": {
-          "userid": "Benutzer-ID",
-          "username": "Benutzername",
-          "passwordhash": "Passwort Hash",
-          "level": "Benutzerlevel",
-          "changepass": "Passwort ändern",
-          "errorrep": "Password-Felder sind unterschiedlich!",
-          "errorsend": "Passwortänderung konnte nicht beantragt werden"
-        },
-        "devices": {
-          "lock":"Schloss",
-          "3dprinter":"3D Drucker",
-          "plotter":"Schneidmaschine",
-          "lasercutter":"Lasercutter"
-        }
+  "translations": {
+    "menu": {
+      "home": "Startseite",
+      "members": "Mitglieder",
+      "documents": "Dokumente",
+      "inventory": "Inventar",
+      "bookings": "Reservationen",
+      "accounting": "Buchhaltung",
+      "administration": "Administration",
+      "profile": "Profil",
+      "devices": "Geräte",
+      "login": "Login",
+      "logout": "Ausloggen",
+      "signup": "Konto anlegen",
+      "notfound": "Seite nicht gefunden"
+    },
+    "login": {
+      "email": "Email",
+      "password": "Passwort",
+      "btn-login": "Einloggen",
+      "no-account": "Noch kein Konto?",
+      "incorrect-cred": "Der Benutzername oder das Passwort sind falsch!"
+    },
+    "signup": {
+      "email": "Email",
+      "password": "Passwort",
+      "retype-password": "Passwort wiederholen",
+      "btn-signup": "Konto anlegen",
+      "has-account": "Haben Sie bereits ein Konto?",
+      "password-not-same": "Die eingegebenen Passwörter stimmen nicht überein",
+      "user-exists": "Der Benutzername existiert bereits"
+    },
+    "footer": {
+      "copyright": "MAS (Maker Access System) von Makers im Zigerschlitz 2020"
+    },
+    "admin": {
+      "logout": "Ausloggen"
+    },
+    "profile": {
+      "userid": "Benutzer-ID",
+      "username": "Benutzername",
+      "passwordhash": "Passwort Hash",
+      "level": "Benutzerlevel",
+      "changepass": "Passwort ändern",
+      "errorrep": "Password-Felder sind unterschiedlich!",
+      "errorsend": "Passwortänderung konnte nicht beantragt werden"
+    },
+    "devices": {
+      "lock": "Schloss",
+      "3dprinter": "3D Drucker",
+      "plotter": "Schneidmaschine",
+      "lasercutter": "Lasercutter"
     }
+  }
 }

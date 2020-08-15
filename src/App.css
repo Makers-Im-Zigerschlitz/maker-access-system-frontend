@@ -2,31 +2,26 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content:center;
-  width:95%;
-  height:95%;
-  margin:auto;
+  align-content: center;
+  width: 95%;
+  height: 95%;
+  margin: auto;
 }
 #Navbar {
-
 }
 #content {
-  flex:2;
+  flex: 2;
   /* width:1200px; */
 }
 .devicecard {
-  padding:20px;
-  width:400px;
+  padding: 20px;
+  width: 400px;
 }
 .dev-lock {
-
 }
 .dev-3dprinter {
-
 }
 .dev-lasercutter {
-
 }
 .dev-plotter {
-
 }
