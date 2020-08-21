@@ -17,64 +17,107 @@ import Devices from './pages/Devices';
 import NotFound from './pages/NotFound';
 import LoginButton from './components/LoginButton';
 import UserQuery from './components/UserQuery';
-import {Navbar,NavbarGroup,NavbarHeading,NavbarDivider,Button,ButtonGroup,Alignment} from "@blueprintjs/core";
+import { Menubar } from 'primereact/menubar';
+import { Dropdown } from 'primereact/dropdown';
 import logo from "./res/logo.png";
 import { withTranslation } from 'react-i18next';
 import i18n from 'i18next'
 import { UserProvider} from "./context/UserProvider";
+import { PrimeReact } from 'primereact/utils';
+import { Ripple } from 'primereact/ripple';
 
 
 function App(props) {
+
   //Localization
   const changeLanguage = (lng) => {
   i18n.changeLanguage(lng);
 }
   const {t} = props
+  const langSelectItems = [
+    {label: 'Deutsch', value: 'de'},
+    {label: 'English', value: 'en'}
+];
+//Menu
+const items =
+[
+    {
+        label: t('menu.home'),
+        icon: 'fas fa-home',
+        command: (event) => {
+            window.location = "/";
+        }
+    },
+    {
+        label: t('menu.members'),
+        icon: 'fas fa-users',
+        command: (event) => {
+            window.location = "/members";
+        }
+    },
+    {
+        label: t('menu.documents'),
+        icon: 'fas fa-file',
+        command: (event) => {
+            window.location = "/docs";
+        }
+    },
+    {
+        label: t('menu.bookings'),
+        icon: 'fas fa-calendar',
+        command: (event) => {
+            window.location = "/bookings";
+        }
+    },
+    {
+        label: t('menu.devices'),
+        icon: 'fas fa-laptop-house',
+        command: (event) => {
+            window.location = "/devices";
+        }
+    },
+    {
+        label: t('menu.inventory'),
+        icon: 'fas fa-boxes',
+        command: (event) => {
+            window.location = "/inventory";
+        }
+    },
+    {
+        label: t('menu.accounting'),
+        icon: 'fas fa-coins',
+        command: (event) => {
+            window.location = "/accounting";
+        }
+    },
+    {
+        label: t('menu.administration'),
+        icon: 'fas fa-tools',
+        command: (event) => {
+            window.location = "/admin";
+        }
+    },
+];
+
+
   return (
     <UserProvider>
     <UserQuery/>
-    <div id="App">
+    <div id="App" classname="p-ripple">
+    <Ripple/>
     <Router>
-    <Navbar id="Navbar">
-    <NavbarGroup align={Alignment.RIGHT}>
-    <LoginButton />
-    <NavbarDivider />
-    <select onChange={e => changeLanguage(e.target.value)}>
-      <option value="de">Deutsch</option>
-      <option value="en">English</option>
-    </select>
-    </NavbarGroup>
-    <NavbarGroup align={Alignment.LEFT}>
-        <NavbarHeading><img src={logo} alt="Logo" height="40px"/></NavbarHeading>
-        <NavbarDivider />
-        <ButtonGroup>
-        <Link to="/">
-          <Button icon="home" text={t('menu.home')}/>
-        </Link>
-        <Link to="/members">
-          <Button icon="people" text={t('menu.members')}/>
-        </Link>
-        <Link to="/docs">
-          <Button icon="document" text={t('menu.documents')}/>
-        </Link>
-        <Link to="/bookings">
-          <Button icon="calendar" text={t('menu.bookings')}/>
-        </Link>
-        <Link to="/devices">
-          <Button icon="cube" text={t('menu.devices')}/>
-        </Link>
-        <Link to="/inventory">
-          <Button icon="box" text={t('menu.inventory')}/>
-        </Link>
-        <Link to="/accounting">
-          <Button icon="bank-account" text={t('menu.accounting')}/>
-        </Link>
-        <Link to="/admin">
-          <Button icon="log-in" text={t('menu.administration')}/>
-        </Link>
-        </ButtonGroup>
-      </NavbarGroup>
-    </Navbar>
+    <Menubar
+      model={items}
+      start={<img alt="logo" src={logo} height="40" className="p-mr-2"></img>}
+      end={
+        <div>
+        <LoginButton />
+        <Dropdown options={langSelectItems} onChange={e => changeLanguage(e.target.value)} placeholder="Sprache"/>
+        </div>
+      }
+      />
+
+
     <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/login" component={Login} />

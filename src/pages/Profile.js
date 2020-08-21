@@ -1,7 +1,10 @@
 import React, {useState,useContext} from 'react'
 import {UserContext,UserDispatchContext} from '../context/UserProvider'
 import { withTranslation } from 'react-i18next';
-import {Card,Elevation,FormGroup,InputGroup,Button,Callout} from "@blueprintjs/core";
+import { Card } from 'primereact/card';
+import { Button } from 'primereact/button';
+import { InputText } from 'primereact/inputtext';
+import { Message } from 'primereact/message';
 import axios from 'axios';
 
 function Profile(props) {
@@ -58,7 +61,7 @@ function Profile(props) {
     }
   }
   return (
-    <Card id="content" elevation={Elevation.TWO}>
+    <Card id="content">
     <h1>{t('menu.profile')}</h1>
     <p>{t('profile.userid')}: {userDetails.uid}</p>
     <p>{t('profile.username')}: {userDetails.username}</p>
@@ -70,8 +73,8 @@ function Profile(props) {
           e.preventDefault();
         }}
       >
-    <FormGroup>
-      <InputGroup
+    <div className="p-inputgroup">
+      <InputText
         type="password"
         value={passOne}
         onChange={e => {
@@ -79,7 +82,7 @@ function Profile(props) {
         }}
         placeholder={t('signup.password')}
       />
-      <InputGroup
+      <InputText
         type="password"
         value={passTwo}
         onChange={e => {
@@ -88,9 +91,9 @@ function Profile(props) {
         placeholder={t('signup.retype-password')}
       />
       <Button type="submit" onClick={changePass}>{t('profile.changepass')}</Button>
-    </FormGroup>
-    { isErrorSend &&<Callout intent="danger">{t('profile.errorsend')}</Callout> }
-    { isErrorRep &&<Callout intent="danger">{t('profile.errorrep')}</Callout> }
+    </div>
+    { isErrorSend &&<Message severity="error">{t('profile.errorsend')}</Message> }
+    { isErrorRep &&<Message severity="error">{t('profile.errorrep')}</Message> }
     </form>
     </Card>
   )

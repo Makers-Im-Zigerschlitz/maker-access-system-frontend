@@ -1,21 +1,23 @@
 import React from "react";
 import { withTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import {Button,Card,InputGroup,FormGroup,Elevation} from "@blueprintjs/core"
+import { Card } from 'primereact/card';
+import { Button } from 'primereact/button';
+import { InputText } from 'primereact/inputtext';
 
 function Signup(props) {
   const {t} = props
   return (
-    <Card id="content" elevation={Elevation.TWO}>
+    <Card id="content">
     <div>
     <h1>{t('menu.signup')}</h1>
     <Card>
-      <FormGroup>
-        <InputGroup type="email" placeholder={t('signup.email')} />
-        <InputGroup type="password" placeholder={t('signup.password')} />
-        <InputGroup type="password" placeholder={t('signup.retype-password')} />
+      <div className="p-inputgroup">
+        <InputText type="email" placeholder={t('signup.email')} />
+        <InputText type="password" placeholder={t('signup.password')} />
+        <InputText type="password" placeholder={t('signup.retype-password')} />
         <Button>{t('signup.btn-signup')}</Button>
-      </FormGroup>
+      </div>
       <Link to="/login">{t('signup.has-account')}</Link>
     </Card>
     </div>

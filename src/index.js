@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './App';
+
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n'
 import * as serviceWorker from './serviceWorker';
-import "../node_modules/@blueprintjs/core/lib/css/blueprint.css";
-import "../node_modules/@blueprintjs/icons/lib/css/blueprint-icons.css";
-import "../node_modules/@blueprintjs/table/lib/css/table.css";
-import "../node_modules/@blueprintjs/select/lib/css/blueprint-select.css";
+import '../node_modules/primereact/resources/themes/bootstrap4-dark-blue/theme.css';
+import '../node_modules/primereact/resources/primereact.min.css';
+import '../node_modules/primeicons/primeicons.css';
 import './index.css';
+import App from './App';
 
 ReactDOM.render(
     <I18nextProvider i18n={i18n}>

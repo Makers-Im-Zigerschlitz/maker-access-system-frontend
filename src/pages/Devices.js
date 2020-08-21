@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { withTranslation } from 'react-i18next';
-import {Card,Elevation} from "@blueprintjs/core";
+import { Card } from 'primereact/card';
 import Lock from '../components/deviceTypes/Lock';
 import ThreeDeePrinter from '../components/deviceTypes/ThreeDeePrinter';
 import Plotter from '../components/deviceTypes/Plotter';
@@ -31,7 +31,7 @@ function Devices(props) {
     }, []);
 
 return (
-  <Card id="content" elevation={Elevation.TWO}>
+  <Card id="content">
   <div>
   <h1>{t('menu.devices')}</h1>
   </div>

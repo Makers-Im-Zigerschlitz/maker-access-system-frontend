@@ -1,6 +1,7 @@
 import React from "react";
 import { withTranslation } from 'react-i18next';
-import {Card,Elevation,Icon,Button} from "@blueprintjs/core";
+import { Card } from 'primereact/card';
+import { Button } from 'primereact/button';
 import axios from 'axios';
 
 function Lock(props) {
@@ -26,15 +27,15 @@ function Lock(props) {
       });
     }
   return (
-    <Card className="dev-lock devicecard" elevation={Elevation.TWO}>
+    <Card className="dev-lock devicecard">
       <div>
-        <div className="dev-logo"><Icon icon="key" iconSize="150px" alt={t('devices.lock')}/></div>
+        <div className="dev-logo"><i className="pi pi-table" style={{'fontSize': '150px'}} alt={t('devices.lasercutter')} /></div>
         <div className="dev-content">
           <h1>{props.name}</h1>
           <h2>{props.description}</h2>
 
-          <Button onClick={open} text="open"/>
-          <Button onClick={close} text="close"/>
+          <Button onClick={open} label="open"/>
+          <Button onClick={close} label="close"/>
         </div>
       </div>
     </Card>

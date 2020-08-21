@@ -1,11 +1,11 @@
 import React from "react";
 import { withTranslation } from 'react-i18next';
-import {Card,Elevation} from "@blueprintjs/core";
+import { Card } from 'primereact/card';
 
 function Footer(props) {
   const {t} = props
 return (
-  <Card id="footer" elevation={Elevation.TWO}>
+  <Card id="footer">
   <p>{t('footer.copyright')}</p>
   </Card>
 )
