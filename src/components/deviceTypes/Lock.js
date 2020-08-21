@@ -29,7 +29,7 @@ function Lock(props) {
   return (
     <Card className="dev-lock devicecard">
       <div>
-        <div className="dev-logo"><i className="pi pi-table" style={{'fontSize': '150px'}} alt={t('devices.lasercutter')} /></div>
+        <div className="dev-logo"><i className="fas fa-key" style={{'fontSize': '150px'}} alt={t('devices.lasercutter')} /></div>
         <div className="dev-content">
           <h1>{props.name}</h1>
           <h2>{props.description}</h2>

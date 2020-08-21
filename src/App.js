@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import './App.css';
 import PrivateRoute from './PrivateRoute';
 import Home from "./pages/Home";
@@ -23,7 +23,6 @@ import logo from "./res/logo.png";
 import { withTranslation } from 'react-i18next';
 import i18n from 'i18next'
 import { UserProvider} from "./context/UserProvider";
-import { PrimeReact } from 'primereact/utils';
 import { Ripple } from 'primereact/ripple';
 
 
