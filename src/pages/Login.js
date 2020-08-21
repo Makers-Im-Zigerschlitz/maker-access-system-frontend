@@ -1,16 +1,12 @@
 import React, { useState, useContext } from "react";
-import { withTranslation } from "react-i18next";
-import { Link, Redirect } from "react-router-dom";
-import axios from "axios";
-import {
-  Button,
-  Card,
-  InputGroup,
-  FormGroup,
-  Callout,
-  Elevation,
-} from "@blueprintjs/core";
-import { UserContext, UserDispatchContext } from "../context/UserProvider";
+import { withTranslation } from 'react-i18next';
+import { Link,Redirect } from "react-router-dom";
+import axios from 'axios';
+import { Card } from 'primereact/card';
+import { Button } from 'primereact/button';
+import { InputText } from 'primereact/inputtext';
+import { Message } from 'primereact/message';
+import {UserContext, UserDispatchContext} from '../context/UserProvider'
 
 function Login(props) {
   const [userField, setUserField] = useState("");
@@ -74,40 +70,36 @@ function Login(props) {
   } else {
     console.log("User not logged in - Serving Login-Page");
     return (
-      <Card id="content" elevation={Elevation.TWO} width="50%">
+      <Card id="content">
         <div>
-          <h1>{t("menu.login")}</h1>
-          <Card interactive={true} elevation={2}>
+          <h1>{t('menu.login')}</h1>
+            <Card>
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-              }}
-            >
-              <FormGroup>
-                <InputGroup
-                  type="username"
-                  value={userField}
-                  onChange={(e) => {
-                    setUserField(e.target.value);
-                  }}
-                  placeholder={t("login.email")}
-                />
-                <InputGroup
-                  type="password"
-                  value={passField}
-                  onChange={(e) => {
-                    setPassField(e.target.value);
-                  }}
-                  placeholder={t("login.password")}
-                />
-                <Button type="submit" onClick={postLogin}>
-                  {t("login.btn-login")}
-                </Button>
-              </FormGroup>
-              <Link to="/signup">{t("login.no-account")}</Link>
-              {isError && (
-                <Callout intent="danger">{t("login.incorrect-cred")}</Callout>
-              )}
+                onSubmit={e => {
+                  e.preventDefault();
+                }}
+              >
+            <div className="p-inputgroup">
+              <InputText
+                type="username"
+                value={userField}
+                onChange={e => {
+                  setUserField(e.target.value);
+                }}
+                placeholder={t('login.email')}
+              />
+              <InputText
+                type="password"
+                value={passField}
+                onChange={e => {
+                  setPassField(e.target.value);
+                }}
+                placeholder={t('login.password')}
+              />
+              <Button type="submit" onClick={postLogin} label={t('login.btn-login')}/>
+            </div>
+            <Link to="/signup">{t('login.no-account')}</Link>
+            { isError &&<Message severity="error">{t('login.incorrect-cred')}</Message> }
             </form>
           </Card>
         </div>

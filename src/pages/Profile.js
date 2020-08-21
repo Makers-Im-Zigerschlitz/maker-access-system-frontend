@@ -1,15 +1,11 @@
-import React, { useState, useContext } from "react";
-import { UserContext, UserDispatchContext } from "../context/UserProvider";
-import { withTranslation } from "react-i18next";
-import {
-  Card,
-  Elevation,
-  FormGroup,
-  InputGroup,
-  Button,
-  Callout,
-} from "@blueprintjs/core";
-import axios from "axios";
+import React, {useState,useContext} from 'react'
+import {UserContext,UserDispatchContext} from '../context/UserProvider'
+import { withTranslation } from 'react-i18next';
+import { Card } from 'primereact/card';
+import { Button } from 'primereact/button';
+import { InputText } from 'primereact/inputtext';
+import { Message } from 'primereact/message';
+import axios from 'axios';
 
 function Profile(props) {
   const { t } = props;
@@ -71,54 +67,40 @@ function Profile(props) {
     }
   }
   return (
-    <Card id="content" elevation={Elevation.TWO}>
-      <h1>{t("menu.profile")}</h1>
-      <p>
-        {t("profile.userid")}: {userDetails.uid}
-      </p>
-      <p>
-        {t("profile.username")}: {userDetails.username}
-      </p>
-      <p>
-        {t("profile.passwordhash")}: {userDetails.password}
-      </p>
-      <p>
-        {t("profile.level")}: {userDetails.level}
-      </p>
-      <h2>{t("profile.changepass")}:</h2>
-      <form
-        onSubmit={(e) => {
+    <Card id="content">
+    <h1>{t('menu.profile')}</h1>
+    <p>{t('profile.userid')}: {userDetails.uid}</p>
+    <p>{t('profile.username')}: {userDetails.username}</p>
+    <p>{t('profile.passwordhash')}: {userDetails.password}</p>
+    <p>{t('profile.level')}: {userDetails.level}</p>
+    <h2>{t('profile.changepass')}:</h2>
+    <form
+        onSubmit={e => {
           e.preventDefault();
         }}
       >
-        <FormGroup>
-          <InputGroup
-            type="password"
-            value={passOne}
-            onChange={(e) => {
-              setPassOne(e.target.value);
-            }}
-            placeholder={t("signup.password")}
-          />
-          <InputGroup
-            type="password"
-            value={passTwo}
-            onChange={(e) => {
-              setPassTwo(e.target.value);
-            }}
-            placeholder={t("signup.retype-password")}
-          />
-          <Button type="submit" onClick={changePass}>
-            {t("profile.changepass")}
-          </Button>
-        </FormGroup>
-        {isErrorSend && (
-          <Callout intent="danger">{t("profile.errorsend")}</Callout>
-        )}
-        {isErrorRep && (
-          <Callout intent="danger">{t("profile.errorrep")}</Callout>
-        )}
-      </form>
+    <div className="p-inputgroup">
+      <InputText
+        type="password"
+        value={passOne}
+        onChange={e => {
+          setPassOne(e.target.value);
+        }}
+        placeholder={t('signup.password')}
+      />
+      <InputText
+        type="password"
+        value={passTwo}
+        onChange={e => {
+          setPassTwo(e.target.value);
+        }}
+        placeholder={t('signup.retype-password')}
+      />
+      <Button type="submit" onClick={changePass}>{t('profile.changepass')}</Button>
+    </div>
+    { isErrorSend &&<Message severity="error">{t('profile.errorsend')}</Message> }
+    { isErrorRep &&<Message severity="error">{t('profile.errorrep')}</Message> }
+    </form>
     </Card>
   );
 }

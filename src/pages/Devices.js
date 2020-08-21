@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { withTranslation } from "react-i18next";
-import { Card, Elevation } from "@blueprintjs/core";
-import Lock from "../components/deviceTypes/Lock";
-import ThreeDeePrinter from "../components/deviceTypes/ThreeDeePrinter";
-import Plotter from "../components/deviceTypes/Plotter";
-import Lasercutter from "../components/deviceTypes/Lasercutter";
-import axios from "axios";
+import { withTranslation } from 'react-i18next';
+import { Card } from 'primereact/card';
+import Lock from '../components/deviceTypes/Lock';
+import ThreeDeePrinter from '../components/deviceTypes/ThreeDeePrinter';
+import Plotter from '../components/deviceTypes/Plotter';
+import Lasercutter from '../components/deviceTypes/Lasercutter';
+import axios from 'axios';
 
 function Devices(props) {
   const { t } = props;
@@ -25,8 +25,23 @@ function Devices(props) {
       setData(result.data);
     };
 
-    fetchData();
-  }, []);
+return (
+  <Card id="content">
+  <div>
+  <h1>{t('menu.devices')}</h1>
+  </div>
+  <div className="alldevs">
+  {data.map(item => (
+    React.createElement(Components[item.deviceType],
+      {
+      key:          item.deviceID,
+      name:         item.deviceName,
+      description:  item.deviceDesc
+      }
+    )
+  ))}
+  </div>
+  </Card>
 
   return (
     <Card id="content" elevation={Elevation.TWO}>
