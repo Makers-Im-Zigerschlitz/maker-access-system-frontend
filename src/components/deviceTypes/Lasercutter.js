@@ -3,7 +3,7 @@ import { withTranslation } from 'react-i18next';
 import { Card } from 'primereact/card';
 
 function Lasercutter(props) {
-  const {t} = props
+  const { t } = props;
   return (
     <Card className="dev-lasercutter devicecard">
       <div>
@@ -14,7 +14,7 @@ function Lasercutter(props) {
         </div>
       </div>
     </Card>
-  )
+  );
 }
 
 export default withTranslation()(Lasercutter);

@@ -3,7 +3,7 @@ import { withTranslation } from 'react-i18next';
 import { Card } from 'primereact/card';
 
 function Plotter(props) {
-  const {t} = props
+  const { t } = props;
   return (
     <Card className="dev-plotter devicecard">
       <div>
@@ -14,7 +14,7 @@ function Plotter(props) {
         </div>
       </div>
     </Card>
-  )
+  );
 }
 
 export default withTranslation()(Plotter);

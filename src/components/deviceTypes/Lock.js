@@ -5,27 +5,33 @@ import { Button } from 'primereact/button';
 import axios from 'axios';
 
 function Lock(props) {
-  const {t} = props;
+  const { t } = props;
 
-    function open() {
-      console.log("/device/"+props.key);
-      axios.post("/device/"+props.key, {
-        action: "unlock"
-      }).then(result => {
+  function open() {
+    console.log("/device/" + props.key);
+    axios
+      .post("/device/" + props.key, {
+        action: "unlock",
+      })
+      .then((result) => {
         console.log("unlocked!");
-      }).catch(e => {
+      })
+      .catch((e) => {
         console.log(e);
       });
-    }
-    function close() {
-      axios.post("/device/"+props.devid, {
-        action: "lock"
-      }).then(result => {
+  }
+  function close() {
+    axios
+      .post("/device/" + props.devid, {
+        action: "lock",
+      })
+      .then((result) => {
         console.log("locked!");
-      }).catch(e => {
+      })
+      .catch((e) => {
         console.log(e);
       });
-    }
+  }
   return (
     <Card className="dev-lock devicecard">
       <div>
@@ -39,7 +45,7 @@ function Lock(props) {
         </div>
       </div>
     </Card>
-  )
+  );
 }
 
 export default withTranslation()(Lock);

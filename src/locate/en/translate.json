@@ -1,56 +1,56 @@
 {
-    "translations": {
-        "menu": {
-            "home": "Home",
-            "members": "Members",
-            "documents": "Documents",
-            "inventory": "Inventory",
-            "bookings": "Bookings",
-            "accounting": "Accounting",
-            "administration": "Administration",
-            "profile": "Profile",
-            "devices": "Devices",
-            "login": "Login",
-            "logout": "Logout",
-            "signup": "Sign up",
-            "notfound": "Page not found"
-        },
-        "login": {
-          "email": "email",
-          "password": "password",
-          "btn-login": "Log In",
-          "no-account": "Don't have an account?",
-          "incorrect-cred": "The username or password provided were incorrect!"
-        },
-        "signup": {
-          "email": "email",
-          "password": "password",
-          "retype-password": "retype password",
-          "btn-signup": "Sign Up",
-          "has-account": "Already have an account?",
-          "password-not-same": "The password fields don't match!",
-          "user-exists": "Username already exists"
-        },
-        "footer": {
-          "copyright": "MAS (Maker Access System) by Makers im Zigerschlitz 2020"
-        },
-        "admin": {
-          "logout": "Log out"
-        },
-        "profile": {
-          "userid": "User-ID",
-          "username": "Username",
-          "passwordhash": "Password hash",
-          "level": "Userlevel",
-          "changepass": "Change password",
-          "errorrep": "Password fields are not identical!",
-          "errorsend": "Error sending password update"
-        },
-        "devices": {
-          "lock":"Lock",
-          "3dprinter":"3D Printer",
-          "plotter":"Plotter",
-          "lasercutter":"Lasercutter"
-        }
+  "translations": {
+    "menu": {
+      "home": "Home",
+      "members": "Members",
+      "documents": "Documents",
+      "inventory": "Inventory",
+      "bookings": "Bookings",
+      "accounting": "Accounting",
+      "administration": "Administration",
+      "profile": "Profile",
+      "devices": "Devices",
+      "login": "Login",
+      "logout": "Logout",
+      "signup": "Sign up",
+      "notfound": "Page not found"
+    },
+    "login": {
+      "email": "email",
+      "password": "password",
+      "btn-login": "Log In",
+      "no-account": "Don't have an account?",
+      "incorrect-cred": "The username or password provided were incorrect!"
+    },
+    "signup": {
+      "email": "email",
+      "password": "password",
+      "retype-password": "retype password",
+      "btn-signup": "Sign Up",
+      "has-account": "Already have an account?",
+      "password-not-same": "The password fields don't match!",
+      "user-exists": "Username already exists"
+    },
+    "footer": {
+      "copyright": "MAS (Maker Access System) by Makers im Zigerschlitz 2020"
+    },
+    "admin": {
+      "logout": "Log out"
+    },
+    "profile": {
+      "userid": "User-ID",
+      "username": "Username",
+      "passwordhash": "Password hash",
+      "level": "Userlevel",
+      "changepass": "Change password",
+      "errorrep": "Password fields are not identical!",
+      "errorsend": "Error sending password update"
+    },
+    "devices": {
+      "lock": "Lock",
+      "3dprinter": "3D Printer",
+      "plotter": "Plotter",
+      "lasercutter": "Lasercutter"
     }
+  }
 }

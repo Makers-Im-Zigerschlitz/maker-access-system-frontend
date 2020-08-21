@@ -6,7 +6,7 @@ import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 
 function Signup(props) {
-  const {t} = props
+  const { t } = props;
   return (
     <Card id="content">
     <div>

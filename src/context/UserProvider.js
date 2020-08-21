@@ -5,11 +5,11 @@ const UserDispatchContext = createContext(undefined);
 
 function UserProvider({ children }) {
   const [userDetails, setUserDetails] = useState({
-    uid:"",
-    username:"",
-    password:"",
-    level:"",
-    loggedIn:false,
+    uid: "",
+    username: "",
+    password: "",
+    level: "",
+    loggedIn: false,
   });
 
   return (

@@ -3,7 +3,7 @@ import { withTranslation } from 'react-i18next';
 import { Card } from 'primereact/card';
 
 function ThreeDeePrinter(props) {
-  const {t} = props
+  const { t } = props;
   return (
     <Card className="dev-3dprinter devicecard">
       <div>
@@ -14,7 +14,7 @@ function ThreeDeePrinter(props) {
         </div>
       </div>
     </Card>
-  )
+  );
 }
 
 export default withTranslation()(ThreeDeePrinter);

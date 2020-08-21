@@ -8,7 +8,7 @@ import { Message } from 'primereact/message';
 import axios from 'axios';
 
 function Profile(props) {
-  const {t} = props
+  const { t } = props;
   const userDetails = React.useContext(UserContext);
   const setUserDetails = useContext(UserDispatchContext);
 
@@ -18,44 +18,50 @@ function Profile(props) {
   const [isErrorSend, setErrorSend] = useState(false);
 
   function getUserDetails() {
-    axios.get("/auth/me").then(result => {
-      if (result.status===200) {
-      setUserDetails({
-        uid:result.data.uid,
-        username:result.data.username,
-        password:result.data.password,
-        level:result.data.level,
-        loggedIn:true,
-      });
-    } else {
-      setUserDetails({
-        uid:"",
-        username:"",
-        password:"",
-        level:"",
-        loggedIn:false,
+    axios
+      .get("/auth/me")
+      .then((result) => {
+        if (result.status === 200) {
+          setUserDetails({
+            uid: result.data.uid,
+            username: result.data.username,
+            password: result.data.password,
+            level: result.data.level,
+            loggedIn: true,
+          });
+        } else {
+          setUserDetails({
+            uid: "",
+            username: "",
+            password: "",
+            level: "",
+            loggedIn: false,
+          });
+        }
       })
-    }
-    }).catch(e => {
-      setErrorSend(true);
-    });
+      .catch((e) => {
+        setErrorSend(true);
+      });
   }
 
   function changePass() {
-    if(passOne===passTwo){
+    if (passOne === passTwo) {
       setErrorRep(false);
-      axios.post("/auth/me/setpass", {
-        password: passOne
-      }).then(result => {
-        if (result.data.successful===true) {
-          getUserDetails();
-          setErrorSend(false);
-        } else {
+      axios
+        .post("/auth/me/setpass", {
+          password: passOne,
+        })
+        .then((result) => {
+          if (result.data.successful === true) {
+            getUserDetails();
+            setErrorSend(false);
+          } else {
+            setErrorSend(true);
+          }
+        })
+        .catch((e) => {
           setErrorSend(true);
-        }
-      }).catch(e => {
-        setErrorSend(true);
-      });
+        });
     } else {
       setErrorRep(true);
     }
@@ -96,7 +102,7 @@ function Profile(props) {
     { isErrorRep &&<Message severity="error">{t('profile.errorrep')}</Message> }
     </form>
     </Card>
-  )
+  );
 }
 
 export default withTranslation()(Profile);

@@ -3,7 +3,7 @@ import { withTranslation } from 'react-i18next';
 import { Card } from 'primereact/card';
 
 function Admin(props) {
-  const {t} = props
+  const { t } = props;
 
   return (
     <Card id="content">

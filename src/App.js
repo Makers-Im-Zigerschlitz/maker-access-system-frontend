@@ -25,7 +25,6 @@ import i18n from 'i18next'
 import { UserProvider} from "./context/UserProvider";
 import { Ripple } from 'primereact/ripple';
 
-
 function App(props) {
 
   //Localization

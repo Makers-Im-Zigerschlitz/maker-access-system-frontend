@@ -3,7 +3,7 @@ import { withTranslation } from 'react-i18next';
 import { Card } from 'primereact/card';
 
 function Home(props) {
-  const {t} = props
+  const { t } = props;
 
   return (
     <Card id="content" title="Title">
@@ -11,7 +11,7 @@ function Home(props) {
     <h1>{t('menu.home')}</h1>
     </div>
     </Card>
-  )
+  );
 }
 
 export default withTranslation()(Home);
