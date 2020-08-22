@@ -20,7 +20,7 @@ function Devices(props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios("/device",);
+      const result = await axios("/api/device",);
       console.log("Fetching devices...");
       console.log(result.data);
       setData(result.data);

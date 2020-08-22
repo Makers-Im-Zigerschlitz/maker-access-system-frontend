@@ -12,7 +12,7 @@ function LoginButton(props) {
 
   function handleClick(e) {
     axios
-      .post("/auth/dologout")
+      .post("/api/auth/dologout")
       .then((result) => {
         if (result.data.successful === true) {
           setUserDetails({

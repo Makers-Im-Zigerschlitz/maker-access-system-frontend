@@ -19,7 +19,7 @@ function Profile(props) {
 
   function getUserDetails() {
     axios
-      .get("/auth/me")
+      .get("/api/auth/me")
       .then((result) => {
         if (result.status === 200) {
           setUserDetails({
@@ -48,7 +48,7 @@ function Profile(props) {
     if (passOne === passTwo) {
       setErrorRep(false);
       axios
-        .post("/auth/me/setpass", {
+        .post("/api/auth/me/setpass", {
           password: passOne,
         })
         .then((result) => {

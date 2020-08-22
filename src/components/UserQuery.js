@@ -6,7 +6,7 @@ function UserQuery(props) {
   const setUserDetails = useContext(UserDispatchContext);
   //Check if Auth already exists - if yes, get user information
   axios
-    .get("/auth/me")
+    .get("/api/auth/me")
     .then((result) => {
       if (result.status === 200 || result.status === 304) {
         setUserDetails({

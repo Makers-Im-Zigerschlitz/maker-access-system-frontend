@@ -21,7 +21,7 @@ function Login(props) {
 
   function getUserDetails() {
     axios
-      .get("/auth/me")
+      .get("/api/auth/me")
       .then((result) => {
         if (result.status === 200) {
           setUserDetails({
@@ -48,7 +48,7 @@ function Login(props) {
 
   function postLogin() {
     axios
-      .post("/auth/dologin", {
+      .post("/api/auth/dologin", {
         username: userField,
         password: passField,
       })
@@ -99,7 +99,7 @@ function Login(props) {
               <Button type="submit" onClick={postLogin} label={t('login.btn-login')}/>
             </div>
             <Link to="/signup">{t('login.no-account')}</Link>
-            { isError &&<Message severity="error">{t('login.incorrect-cred')}</Message> }
+            { isError && <Message severity="error" summary="Error" detail={t('login.incorrect-cred')} />}
             </form>
           </Card>
         </div>

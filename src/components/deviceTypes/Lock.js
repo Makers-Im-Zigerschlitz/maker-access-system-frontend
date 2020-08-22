@@ -8,9 +8,8 @@ function Lock(props) {
   const { t } = props;
 
   function open() {
-    console.log("/device/" + props.key);
     axios
-      .post("/device/" + props.key, {
+      .post("/api/device/" + props.key, {
         action: "unlock",
       })
       .then((result) => {
@@ -22,7 +21,7 @@ function Lock(props) {
   }
   function close() {
     axios
-      .post("/device/" + props.devid, {
+      .post("/api/device/" + props.devid, {
         action: "lock",
       })
       .then((result) => {
